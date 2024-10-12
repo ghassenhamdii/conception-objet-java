@@ -1,7 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +10,26 @@ public class Main {
         Animal elephant = new Animal("Elephantidae", "Dumbo", 10, true);
         Animal dog = new Animal("Canine", "Snoopy", 2, true);
         Animal dog2 = new Animal("Canine", "Rex", 2, true);
+        Aquatic aquatic = new Aquatic("Fish", "Shark", 10, false, "Ocean");
+        Terrestrial terrestrial = new Terrestrial("Mammal", "Lion", 8, true, 4);
+        Dolphin dolphin = new Dolphin("Mammal", "Dolphin", 5, true, "Ocean", 35.5f);
+        Penguin penguin = new Penguin("Bird", "Penguin", 3, false, "Arctic", 20.0f);
+
+        aquatic.swim();
+        dolphin.swim();
+        penguin.swim();
+        System.out.println(aquatic);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+
+
+        // Affichage des objets créés avec le constructeur paramétré
+        System.out.println("Aquatic : " + aquatic);
+        System.out.println("Terrestrial : " + terrestrial);
+        System.out.println("Dolphin : " + dolphin);
+        System.out.println("Penguin : " + penguin);
+
 
 
         Zoo myZoo = new Zoo("Belvedaire", "Tunis");

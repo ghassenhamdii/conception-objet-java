@@ -9,7 +9,7 @@ public class Animal {
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
-        setAge(age);  // On protège contre les âges négatifs
+        setAge(age);
         this.isMammal = isMammal;
     }
 
