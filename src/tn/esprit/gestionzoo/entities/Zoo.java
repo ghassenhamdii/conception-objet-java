@@ -1,3 +1,4 @@
+
 package tn.esprit.gestionzoo.entities;
 
 public class Zoo {
@@ -6,12 +7,58 @@ public class Zoo {
     private String city;
     static final int NBRCAGES = 25;
     private int animalCount = 0;
+    private Aquatic[] aquaticAnimals;
+    static final int NBRAQUATIC = 10;
+    private int aquaticCount = 0;
 
     public Zoo(String name, String city) {
         setName(name);
         this.city = city;
         this.animals = new Animal[NBRCAGES];
+        this.aquaticAnimals = new Aquatic[NBRAQUATIC];
     }
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (aquaticCount >= NBRAQUATIC ) {
+            System.out.print("Impossible d'ajouter un animal aquatic");
+        } else {
+            aquaticAnimals[aquaticCount] = aquatic;
+            aquaticCount++;
+        }
+    }
+
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0.0f;
+
+        for (Aquatic aquaticAnimal : aquaticAnimals) {
+            // Vérifier si l'animal est un pingouin
+            if (aquaticAnimal instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimal;
+                // Comparer la profondeur de nage du pingouin avec la profondeur maximale actuelle
+                if (penguin.getSwimmingDepth() > maxDepth) {
+                    maxDepth = penguin.getSwimmingDepth();
+                }
+            }
+        }
+
+        return maxDepth;
+    }
+    public void displayNumberOfAquaticsByType() {
+        int nbr_dauphins = 0;
+        int nbr_pingouins = 0;
+        for (int i=0;i<NBRAQUATIC;i++){
+            if(aquaticAnimals[i] instanceof Dolphin) {
+                nbr_dauphins++;
+
+            } else {
+                nbr_pingouins++;
+
+            }
+        }
+        System.out.println("Le nombre dauphins est : "+nbr_dauphins);
+        System.out.println("Le nombre de pingouins est"+nbr_pingouins);
+
+    }
+
 
     public String getName() {
         return name;
@@ -48,6 +95,7 @@ public class Zoo {
         animalCount++;
         return true;
     }
+
 
     public boolean isZooFull() {
         return animalCount == NBRCAGES;
