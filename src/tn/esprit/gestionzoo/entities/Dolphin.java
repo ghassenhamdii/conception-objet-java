@@ -1,9 +1,12 @@
 
+
 package tn.esprit.gestionzoo.entities;
+
+import tn.esprit.gestionzoo.exception.InvalidAgeException;
 
 public class Dolphin extends Aquatic{
     private float swimmingSpeed;
-    public Dolphin(String family,String name,int age,Boolean isMamal,String habitat,float swimmingSpeed){
+    public Dolphin(String family,String name,int age,Boolean isMamal,String habitat,float swimmingSpeed) throws InvalidAgeException {
         super(family,name,age,isMamal,habitat);
         this.swimmingSpeed=swimmingSpeed;
     }

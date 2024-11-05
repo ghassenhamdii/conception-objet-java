@@ -1,9 +1,11 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.exception.InvalidAgeException;
+
 public abstract class Aquatic extends Animal{
     private String habitat;
 
-    public Aquatic(String family, String name , int age, Boolean isMamal,String habitat){
+    public Aquatic(String family, String name , int age, Boolean isMamal,String habitat) throws InvalidAgeException {
         super(family,name,age,isMamal);
         this.habitat=habitat;
     }
