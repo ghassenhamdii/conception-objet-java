@@ -4,47 +4,31 @@ import tn.esprit.gestionzoo.entities.*;
 import tn.esprit.gestionzoo.exception.*;
 
 public class Main {
-    public static void main(String[] args) throws InvalidAgeException {
-
+    public static void main(String[] args) {
         try {
-            // Création d'animaux terrestres
-            Animal lion = new Animal("Felidae", "Leo", 5, true);
-            Animal tiger = new Animal("Felidae", "Tiger", 3, true);
-            Animal elephant = new Animal("Elephantidae", "Dumbo", 10, true);
-            Animal dog = new Animal("Canine", "Snoopy", 2, true);
+            // Création d'un objet Dolphin (Aquatic)
+            Dolphin dolphin = new Dolphin("Mammal", "Flipper", 5, true, "Ocean", 30.5f);
+            System.out.println(dolphin);
+            dolphin.swim();
+            dolphin.eatMeat(Food.MEAT);  // Test de l'alimentation avec MEAT
+            dolphin.eatMeat(Food.PLANT); // Test de l'alimentation avec PLANT
 
-            // Création d'animaux aquatiques
-            Dolphin aquatic = new Dolphin("Fish", "Shark", 10, false, "Ocean", 40.0f);
-            Dolphin dolphin = new Dolphin("Mammal", "Dolphin", 5, true, "Ocean", 35.5f);
-            Penguin penguin = new Penguin("Bird", "Penguin", 3, false, "Arctic", 20.0f);
+            // Création d'un objet Penguin
+            Penguin penguin = new Penguin("Bird", "Penguin", 3, false, "Arctic", 15.0f);
+            System.out.println(penguin);
+            penguin.swim();
+            penguin.eatMeat(Food.MEAT);  // Test de l'alimentation avec MEAT
+            penguin.eatMeat(Food.BOTH);  // Test de l'alimentation avec BOTH
 
-            // Création de zoos
-            Zoo myZoo = new Zoo("Belvedaire", "Tunis");
-            Zoo anotherZoo = new Zoo("Zoo B", "Paris");
+            // Création d'un objet Terrestrial
+            Terrestrial lion = new Terrestrial("Felidae", "Lion", 7, true, 4);
+            System.out.println(lion);
+            lion.eatMeat(Food.MEAT);      // Test de l'alimentation carnivore
+            lion.eatPlant(Food.PLANT);    // Test de l'alimentation herbivore
+            lion.eatPlantAndMeet(Food.BOTH);  // Test de l'alimentation omnivore
 
-            // Ajout d'animaux au zoo avec gestion de l'exception ZooFullException
-            myZoo.addAnimal(lion);
-            System.out.println("Nombre d'animaux dans le zoo : " + myZoo.getAnimalCount());
-
-            myZoo.addAnimal(tiger);
-            System.out.println("Nombre d'animaux dans le zoo : " + myZoo.getAnimalCount());
-
-            myZoo.addAnimal(elephant);
-            System.out.println("Nombre d'animaux dans le zoo : " + myZoo.getAnimalCount());
-
-            myZoo.addAnimal(dog);  // Ceci devrait lever une ZooFullException
-            System.out.println("Nombre d'animaux dans le zoo : " + myZoo.getAnimalCount());
-
-        } catch (ZooFullException e) {
-            System.out.println("Erreur : " + e.getMessage());
         } catch (InvalidAgeException e) {
             System.out.println("Erreur d'âge : " + e.getMessage());
         }
-
-        // Code restant sans modification
-        // Affichage des animaux aquatiques
-        Dolphin dolphin1 = new Dolphin("Mammal", "Flipper", 5, true, "Ocean", 35.0f);
-        Dolphin dolphin2 = new Dolphin("Mammal", "Flipper", 5, true, "Ocean", 40.0f);
-        System.out.println("Dolphin1 est égal à Dolphin2 ? " + dolphin1.equals(dolphin2));
     }
 }
