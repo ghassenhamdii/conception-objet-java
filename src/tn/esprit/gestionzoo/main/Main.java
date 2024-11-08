@@ -41,7 +41,7 @@ public class Main {
             System.out.println("Erreur d'âge : " + e.getMessage());
         }
 
-        // Code restant sans modification
+        
         // Affichage des animaux aquatiques
         Dolphin dolphin1 = new Dolphin("Mammal", "Flipper", 5, true, "Ocean", 35.0f);
         Dolphin dolphin2 = new Dolphin("Mammal", "Flipper", 5, true, "Ocean", 40.0f);
